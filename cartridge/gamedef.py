@@ -20,7 +20,7 @@ def troid_init(vms=None):
     screen = pygame.display.set_mode(shared.SCR_SIZE)
     shared.screen = screen
     pyv.define_archetype('player', (
-        'speed', 'accel_y', 'gravity', 'lower_block', 'jetpack', 'body', 'camera', 'controls'
+        'speed', 'accel_y', 'gravity', 'lower_block', 'body', 'camera', 'controls'
     ))
     pyv.define_archetype('block', ['body', ])
     pyv.define_archetype('mob_block', ['body', 'speed', 'bounds', 'horz_flag', ])

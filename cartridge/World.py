@@ -42,7 +42,6 @@ class World:
             'accel_y': 0.0,
             'gravity': 14.5,
             'lower_block': None,
-            'jetpack': False,
             'body': pygame.rect.Rect(shared.SPAWN[0], shared.SPAWN[1], shared.AVATAR_SIZE, shared.AVATAR_SIZE),
             'camera': cam_ref,
             'controls': {'up': False, 'down': False, 'left': False, 'right': False}

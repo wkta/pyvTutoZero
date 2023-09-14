@@ -36,11 +36,6 @@ def steering_sys(entities, components):
         ctrl['right'] = activekeys[pg.K_RIGHT]
         ctrl['down'] = activekeys[pg.K_DOWN]
 
-        # switch jetpack value
-        if not prevdown_key_value and ctrl['down']:
-            ent['jetpack'] = not ent['jetpack']
-            print('JETPACK:', ('on' if ent['jetpack'] else 'off'))
-
         if ctrl['right']:
             ent['speed'][0] = shared.AV_SPEED
 
@@ -50,14 +45,10 @@ def steering_sys(entities, components):
         if not (ctrl['left'] or ctrl['right']):
             ent['speed'][0] = 0.0
 
-        if not ent['jetpack']:
-            if ent['lower_block']:
-                if not prevup_key_value and ctrl['up']:
-                    ent['accel_y'] -= shared.JUMP_POWER
-                    ent['lower_block'] = None
-        else:  # other rules apply!
-            if ctrl['up']:
-                ent['accel_y'] = -shared.JUMP_POWER * shared.JETPACK_RATIO
+        if ent['lower_block']:
+            if not prevup_key_value and ctrl['up']:
+                ent['accel_y'] -= shared.JUMP_POWER
+                ent['lower_block'] = None
 
 
 def automob_sys(entities, components):
