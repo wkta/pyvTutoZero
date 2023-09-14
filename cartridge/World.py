@@ -37,8 +37,6 @@ class World:
 
     def create_avatar(self, cam_ref):
         player = pyv.new_from_archetype('player')
-        player_image = pyv.vars.images['barry']
-        icon = pygame.transform.scale(player_image, (shared.AVATAR_SIZE, shared.AVATAR_SIZE))
         pyv.init_entity(player, {
             'speed': [0.0, 0.0],
             'accel_y': 0.0,
@@ -47,9 +45,8 @@ class World:
             'jetpack': False,
             'body': pygame.rect.Rect(shared.SPAWN[0], shared.SPAWN[1], shared.AVATAR_SIZE, shared.AVATAR_SIZE),
             'camera': cam_ref,
-            'controls': {'up': False, 'down': False, 'left': False, 'right': False},
-            'icon': icon
-        })
+            'controls': {'up': False, 'down': False, 'left': False, 'right': False}
+            })
 
     def add_game_obj(self, gobj):
         self._game_objects.append(gobj)

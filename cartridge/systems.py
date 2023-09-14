@@ -174,7 +174,6 @@ def rendering_sys(entities, components):
     scr = shared.screen
 
     scr.fill((0, 27, 0))
-    scr.blit(shared.gam_assets['bg'], [0, 0])
 
     pl_ent = pyv.find_by_archetype('player')[0]
 
@@ -190,11 +189,11 @@ def rendering_sys(entities, components):
             pyv.draw_rect(scr, color, cam_relativ_body, width if width else 1)
 
     # draw player!
-    disp(scr, pl_ent, img=pl_ent['icon'])
+    disp(scr, pl_ent, 'red')
     # draw blocks
     li_blocks = pyv.find_by_archetype('block')
     for b in li_blocks:
-        disp(scr, b, img=shared.gam_assets['wall'])
+        disp(scr, b, 'blue')
     mob_blocks = pyv.find_by_archetype('mob_block')
     for b in mob_blocks:
         disp(scr, b, 'orange')

@@ -24,12 +24,3 @@ JETPACK_RATIO = 0.05
 SPEED_CAP = 700.0
 SPAWN = -1080, 400
 ASSETS_FOLDER = 'cartridge'
-
-
-gam_assets = dict()
-
-
-def prepare_game_assets():
-    global gam_assets
-    gam_assets['bg'] = pygame.transform.scale(pyv.vars.images['background'], (WIDTH, HEIGHT))
-    gam_assets['wall'] = pygame.transform.scale(pyv.vars.images['wall_small'], (BLOCKSIZE, BLOCKSIZE))
