@@ -198,10 +198,6 @@ def rendering_sys(entities, components):
     mob_blocks = pyv.find_by_archetype('mob_block')
     for b in mob_blocks:
         disp(scr, b, 'orange')
-    temp = pyv.find_by_archetype('tp_block')
-    if len(temp):
-        tp_block = temp[0]
-        disp(scr, tp_block, 'purple', 3)
 
     # draw world edges (need to show where its forbidden to go!)
     a, b = shared.world.limits
@@ -245,10 +241,3 @@ def teleport_sys(entities, components):
         player['body'].topleft = shared.SPAWN[0], shared.SPAWN[1]
         # reset player speed when he respawns...
         player['speed'][0], player['speed'][1] = [0.0, 0.0]
-
-    temp = pyv.find_by_archetype('tp_block')
-    if len(temp):
-        tp_block = temp[0]
-        if player['body'].colliderect(tp_block['body']):
-            player['next_map'] = 'map2.csv'
-            _proc_unload_load()

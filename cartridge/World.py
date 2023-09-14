@@ -89,10 +89,3 @@ class World:
                         'horz_flag': btype == 2,
                     }
                 )
-            elif btype == 4:
-                pyv.init_entity(
-                    pyv.new_from_archetype('tp_block'), {
-                        'body': rrect
-                    }
-                )
-                self._platforms.append(rrect)

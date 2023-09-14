@@ -30,7 +30,6 @@ def troid_init(vms=None):
     ))
     pyv.define_archetype('block', ['body', ])
     pyv.define_archetype('mob_block', ['body', 'speed', 'bounds', 'horz_flag', ])
-    pyv.define_archetype('tp_block', ['body', ])
 
     world = World(2128.0, 1255.0)
     world.load_map(os.path.join(shared.ASSETS_FOLDER, 'my_map.csv'))
