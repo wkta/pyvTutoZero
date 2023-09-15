@@ -5,7 +5,9 @@
     },
     "description": "this is an example of platformer",
     "author": "KataGames_Team",
-    "assets": [],
+    "assets": [
+        "my_map.csv"
+    ],
     "sounds": [],
     "cartridge": "test",
     "game_name": "test",

@@ -16,8 +16,7 @@ ts_prev_frame = None
 @pyv.declare_begin
 def troid_init(vms=None):
     pyv.init()
-
-    screen = pygame.display.set_mode(shared.SCR_SIZE)
+    screen = pyv.get_surface()
     shared.screen = screen
     pyv.define_archetype('player', (
         'speed', 'accel_y', 'gravity', 'lower_block', 'body', 'camera', 'controls'
@@ -26,7 +25,7 @@ def troid_init(vms=None):
     pyv.define_archetype('mob_block', ['body', 'speed', 'bounds', 'horz_flag', ])
 
     world = World(2128.0, 1255.0)
-    world.load_map(os.path.join(shared.ASSETS_FOLDER, 'my_map.csv'))
+    world.load_map('my_map')
     shared.world = world
     world.add_game_obj(
         {'key': 'origin'}
@@ -51,6 +50,3 @@ def troid_update(timeinfo):
 @pyv.declare_end
 def troid_exit(vms=None):
     pyv.quit()
-
-
-pyv.run_game()

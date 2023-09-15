@@ -1,9 +1,8 @@
-
+from . import pimodules
 from . import shared
 from .classes import Terrain
-from . import pimodules
-pyv = pimodules.pyved_engine
 
+pyv = pimodules.pyved_engine
 pygame = pyv.pygame
 
 
@@ -30,9 +29,8 @@ class World:
     def objects(self):
         return self._game_objects
 
-    def load_map(self, filename):
-        with open(filename, 'r') as fptr:
-            shared.terrain = Terrain(fptr.read())
+    def load_map(self, mapname):
+        shared.terrain = Terrain(pyv.vars.csvdata[mapname])
         self.add_terrain_blocks(shared.terrain, terrain_origin=[-1324.0, -100.0])
 
     def create_avatar(self, cam_ref):

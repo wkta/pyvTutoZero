@@ -66,11 +66,11 @@ class Camera:
 class Terrain:
     SAFETY_CNT = 0
 
-    def __init__(self, scsv):
+    def __init__(self, mapdata):
         self.SAFETY_CNT += 1
         if self.SAFETY_CNT > 1:
             raise ValueError('2nd instance of terrain')
-        self.map_data = self.parse_map(scsv)
+        self.map_data = mapdata  #self.parse_map(scsv)
 
         self.row_tile_counts = [len(row) for row in self.map_data]
         self.clock = pygame.time.Clock()
@@ -79,15 +79,6 @@ class Terrain:
         self.collidable_tiles = {'x', 'y'}
         self.screen_center_x = shared.WIDTH // 2
         self.screen_center_y = shared.HEIGHT // 2
-
-    def parse_map(self, scsv):
-        f = StringIO(scsv)
-        map_data = []
-        reader = csv.reader(f, delimiter=',')
-        for row in reader:
-            if len(row) > 0:
-                map_data.append(list(map(int, row)))
-        return map_data
 
 
 # class Player:
